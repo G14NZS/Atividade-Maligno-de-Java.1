@@ -1,2 +1,2 @@
-# Atividade-Maligno-de-Java.1
+# Atividade-Maligno-de-Java
 Jogo da forca
