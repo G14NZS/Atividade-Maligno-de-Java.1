@@ -37,6 +37,15 @@ public class Palavra implements Comparable<Palavra>
         // e assim por diante.
         // lan�ar excecao caso nao encontre em this.texto
         // a I�zima apari��o da letra fornecida.
+        int aparicoes=0;
+        for (int x=0; x<this.getTamanho(); x++){
+            if (aparicoes==i)
+              return x+1;
+            char c = this.texto.charAt(x);
+            if (c==letra)
+                aparicoes++;          
+        }
+        throw new Exception ("Posição invalida");
     }
 
     public int getTamanho ()
@@ -55,12 +64,17 @@ public class Palavra implements Comparable<Palavra>
     {
         // verificar se this e obj possuem o mesmo conte�do, retornando
         // true no caso afirmativo ou false no caso negativo
+        if (obj==this) return true;;
+        if (obj==null) return false;
+        if (obj.getClass()!=this.getClass()) return false;
+        Palavra palavra = (Palavra) obj;
+        return palavra.texto.equals(this.texto);
     }
 
     @Override
     public int hashCode ()
-    {
-        // calcular e retornar o hashcode de this
+    {    
+        return this.texto.hashCode();
     }
 
     @Override
