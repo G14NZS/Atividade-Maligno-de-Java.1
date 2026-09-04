@@ -37,15 +37,18 @@ public class Palavra implements Comparable<Palavra>
         // e assim por diante.
         // lan�ar excecao caso nao encontre em this.texto
         // a I�zima apari��o da letra fornecida.
+        if (i<0)
+          throw new Exception ("Posição invalida");
         int aparicoes=0;
         for (int x=0; x<this.getTamanho(); x++){
-            if (aparicoes==i)
-              return x+1;
             char c = this.texto.charAt(x);
-            if (c==letra)
-                aparicoes++;          
+            if (c==letra){
+              if (aparicoes==i)
+                return x+1;
+              aparicoes++;
+            }
         }
-        throw new Exception ("Posição invalida");
+        throw new Exception ("A letra não possui aparicoes na iezima ocorrencia informada");
     }
 
     public int getTamanho ()
