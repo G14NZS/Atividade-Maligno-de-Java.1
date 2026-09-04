@@ -4,19 +4,33 @@ public class Tracinhos implements Cloneable
 
     public Tracinhos (int qtd) throws Exception
     {
-        // verifica se qtd não é positiva, lançando uma exceção.
+        // verifica se qtd nÃ£o Ã© positiva, lanÃ§ando uma exceÃ§Ã£o.
         // instancia this.texto com um vetor com tamanho igual qtd.
         // preenche this.texto com underlines (_).
+        if (qtd<0)
+          throw new Exception ("Qtd negativa");
+        this.texto = new char[qtd];
+        for (int x = 0; x < qtd; x++) {
+          this.texto[x] = '_';
+        }
     }
 
     public void revele (int posicao, char letra) throws Exception
     {
-        // verifica se posicao é negativa ou então igual ou maior
-        // do que this.texto.length, lançando uma exceção.
+        // verifica se posicao Ã© negativa ou entÃ£o igual ou maior
+        // do que this.texto.length, lanÃ§ando uma exceÃ§Ã£o.
         // verifica se em this.texto[posicao] ainda tem '_'; nao
-        // tendo, lança exceção.
+        // tendo, lanÃ§a exceÃ§Ã£o.
         // armazena a letra fornecida na posicao tambem fornecida
         // do vetor this.texto
+        if (posicao<0 || >=this.texto)
+          throw new Exception ("Posicao invalida");
+        if (this.texto[posicao]=='_')
+
+        
+
+
+
     }
 
     public boolean isAindaComTracinhos ()
@@ -31,15 +45,15 @@ public class Tracinhos implements Cloneable
     @Override
     public String toString ()
     {
-        // retorna um String com TODOS os caracteres que há
-        // no vetor this.texto, intercalados com espaços em
+        // retorna um String com TODOS os caracteres que hÃ¡
+        // no vetor this.texto, intercalados com espaÃ§os em
         // branco
     }
 
     @Override
     public boolean equals (Object obj)
     {
-        // verificar se this e obj possuem o mesmo conteúdo, retornando
+        // verificar se this e obj possuem o mesmo conteÃºdo, retornando
         // true no caso afirmativo ou false no caso negativo
     }
 
@@ -49,10 +63,10 @@ public class Tracinhos implements Cloneable
         // calcular e retornar o hashcode de this
     }
 
-    public Tracinhos (Tracinhos t) throws Exception // construtor de cópia
+    public Tracinhos (Tracinhos t) throws Exception // construtor de cÃ³pia
     {
         // intanciar this.texto um vetor com o mesmo tamanho de t.texto
-        // e copilar o conteúdo de t.texto para this.texto
+        // e copilar o conteÃºdo de t.texto para this.texto
     }
 
     @Override
